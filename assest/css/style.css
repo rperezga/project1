@@ -1,0 +1,18 @@
+.logo{
+    width: 250px;
+    margin: 10px 0;
+}
+
+.login{
+    margin-left: 20px;
+}
+
+
+footer{
+    background-color: rgb(227, 227, 228);    
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: rgb(27, 26, 26);
+}
+
