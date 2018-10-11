@@ -29,13 +29,13 @@
             <ul class="list-unstyled components">
                 <p>MENU</p>
                 <li class="active">
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <a href="index.html"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-shopping-basket"></i> Supplies</a>
                 </li>
                 <li>
-                    <a href="checklist.html"><i class="fa fa-list-alt"></i> Check List</a>
+                    <a href="#"><i class="fa fa-list-alt"></i> Check List</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-gas-pump"></i> Gas Finder</a>
@@ -69,17 +69,30 @@
                 </div>
             </nav>
 
-            <h2>Content going HERE</h2>
+            <h2>Create a Hurricane Checklist</h2>
             <div class="line"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
+            <p>
+                Type an item below and click "Add" to add it to your hurricane supplies list.
+            </p>
+            <div>
+                <input type="text" id="myInput" placeholder="Type here...">
+                <span onclick="newElement()" class="addBtn"><button>Add</button></span>
+            </div>
 
-        </div>
-    </div>
+            <ul id="myUL">
 
+            </ul>
+
+            </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+
+   
+
+        
 
 
 
@@ -97,6 +110,5 @@
             });
         });
     </script>
+    <script type="text/javascript" src="assest/javascript/app.js"></script>
 </body>
-
-</html>
