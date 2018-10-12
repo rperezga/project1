@@ -4,6 +4,7 @@ $(function () {
     var gasType = '';
     var zip = '';
     var limit = 5;
+    var coordenates = '';
 
     function submitReady() {
         if (gasType != '' && (state != '' || zip != '')) {
@@ -60,8 +61,8 @@ $(function () {
                 var colName = $("<td>");
                 colName.append(response.fuel_stations[i].station_name);
 
-                var colAddress = $("<td>");
-                colAddress.append(response.fuel_stations[i].street_address + ', ' + response.fuel_stations[i].city + ' ' + response.fuel_stations[i].state + ', ' + response.fuel_stations[i].zip);
+                // var colAddress = $("<td>");
+                // colAddress.append(response.fuel_stations[i].street_address + ', ' + response.fuel_stations[i].city + ' ' + response.fuel_stations[i].state + ', ' + response.fuel_stations[i].zip);
 
                 var colPhone = $("<td>");
                 colPhone.append(response.fuel_stations[i].station_phone);
@@ -75,7 +76,7 @@ $(function () {
                 colMap.attr("data-target", "#modalMapStation");
 
                 rowStation.append(colName)
-                    .append(colAddress)
+                    // .append(colAddress)
                     .append(colPhone)
                     .append(colHours)
                     .append(colMap)
@@ -88,12 +89,22 @@ $(function () {
     })
 
     $(document).on("click", "#map", function () {
-        var lat = $(this).parent().attr("data-lat")
-        var long = $(this).parent().attr("data-long")
+        localStorage.setItem("lat", $(this).parent().attr("data-lat"));
+        localStorage.setItem("long", $(this).parent().attr("data-long"));
+
+        var lat = localStorage.getItem("lat");
+        var long = localStorage.getItem("long");
+
         $("#stationAddress").text($(this).parent().attr("data-address"))
+        $("#mapView").html('<iframe src="showinmap.html" style="height: 430px; width: 100%"></iframe>');
 
         console.log(lat + "  " + long)
     })
+
+    
+
+
+
 
 })
 

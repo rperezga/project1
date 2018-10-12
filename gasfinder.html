@@ -185,7 +185,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Station Name</th>
-                            <th scope="col">Address</th>
+                            <!-- <th scope="col">Address</th> -->
                             <th scope="col">Phone Number</th>
                             <th scope="col">Hours</th>
                             <th scope="col">View Map</th>
@@ -205,9 +205,11 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="stationAddress"></h5>
                 </div>
-                <div class="modal-body">
-                    <img src="./assest/images/map.jpg" alt="">
+
+                <div id="mapView">
+                    
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
@@ -229,6 +231,8 @@
             });
         });        
     </script>
+
+
 </body>
 
 </html>
