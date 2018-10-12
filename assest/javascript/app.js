@@ -49,3 +49,44 @@ function newElement(){
     }
 }
 //end javascript for checklist.html
+
+//API for Hurricane
+
+// Adding click event listen listener to all buttons
+$(document).on("click", "#track", function() {
+    // Grabbing and storing the data from Hurricane tracking
+
+ 
+  const searchType = 'random';
+
+    // Constructing a queryURL using the animal name
+    var queryURL = "https://api.aerisapi.com/tropicalcyclones/closest?p=chanhassen,mn&radius=1300mi&filter=all&limit=1&format=json&client_id=5MQ1RvB0ZRonDrmxEfyPq&client_secret=tvg7OeULoGZ8zMJhKD6MimPUerXrY2gli9EjtMT4";
+      console.log(queryURL);
+
+    // Performing an AJAX request with the queryURL
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+
+    // After data comes back from the request
+    .then(function(response) {
+        console.log(queryURL);
+
+        console.log(response);
+        // storing the data from the AJAX request in the results variable
+        var results = response.data;
+
+          // Creating and storing a div tag
+          var hcane = $("<div class='line1'>");
+
+          // Creating a paragraph tag with the result item's rating
+          var p = $(".line1").text(results);
+          
+            
+
+          
+          
+      });
+  });
+  // end hurricane Tracker API
