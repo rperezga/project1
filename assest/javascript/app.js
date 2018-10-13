@@ -110,6 +110,7 @@ $(function () {
 
 
 //Javascript for checklist.html
+
 var myNodelist = document.getElementsByTagName("LI");
 for(var i = 0; i < myNodelist.length; i++){
     var span = document.createElement("SPAN");
@@ -119,6 +120,7 @@ for(var i = 0; i < myNodelist.length; i++){
     myNodelist[i].appendChild(span);
 }
 
+//delete an item on the checklist
 var close = document.getElementsByClassName("close");
 for(var i = 0; i < close.length; i++){
     close[i].onclick = function() {
@@ -134,6 +136,7 @@ list.addEventListener('click', function(ev){
     }
 }, false);
 
+//add an item to checklist
 function newElement(){
     var li = document.createElement("li");
     var inputValue = document.getElementById("myInput").value;
@@ -159,6 +162,14 @@ function newElement(){
         }
     }
 }
+
+//press "enter" key to submit
+$("#myInput").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $(".addBtn").click();
+    }
+});
+
 //end javascript for checklist.html
 
 //API for Hurricane

@@ -241,3 +241,31 @@ a.article, a.article:hover {
     }
 
 }
+
+/*Style for checklist.html */
+#checklist {
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    margin: 10px 5px 5px 0px;
+}
+
+#myInput {
+    margin: 15px 5px 15px 5px;
+}
+
+
+
+.btnAdd:hover {
+font-weight: bold;
+}
+
+li:hover {
+    color: rgb(216, 0, 0);
+}
+
+#checklistP:hover {
+    color: black;
+}
+/* End style for checklist.html */
