@@ -19,7 +19,7 @@
         crossorigin="anonymous">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./assest/javascript/app.js"></script>
+    <script src="assest/javascript/supplies.js"></script>
 </head>
 
 <body>
@@ -77,40 +77,93 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <label for="inputDestination">Category</label>
-                            <div class="input-group mb-3">
-                                <select class="custom-select" id="selectGasType">
-                                    <option value="empty" selected>Choose Category...</option>
-                                    <option value="1334134">Arts, Crafts & Sewing</option>
-                                    <option value="91083">Auto & Tires</option>
-                                    <option value="5427">Baby</option>
-                                    <option value="10855666">Beauty</option>
-                                    <option value="3920">Books</option>
-                                    <option value="1105910">Cell Phones</option>
-                                    <option value="5438">Clothing</option>
-                                    <option value="3944">Electronics</option>
-                                    <option value="976759">Food</option>
-                                    <option value="1094765">Gifts & Registry</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
                             <label for="inputSearch">Search Product</label>
                             <input type="text" class="form-control" id="inputSearch" placeholder="Product Name">
                         </div>
                     </div>
                 </div>
                 <div class="button-submit" style="text-align: right">
-                    <button type="submit" class="btn btn-outline-success" id="searchSubmit" disabled>Find Products</button>
+                    <button type="submit" class="btn btn-outline-success" id="searchSubmit">Find Products</button>
                 </div>
             </form>
+            <div class="line"></div>
+            <div class="resultSupliesList">
+                <table class="table table-hover" style="margin-top: 30px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Product Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataSupplies"> </tbody>
+                </table>
+            </div>
+            <div class="line"></div>
+            <div class="resultStores">
+                <table class="table table-hover" style="margin-top: 30px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Store Name</th>
+                            <th scope="col">Store Phone</th>
+                            <th scope="col">View Map</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataStores"> </tbody>
+                </table>
+            </div>
 
         </div>
     </div>
 
+    <!-- Modal to show MAP -->
+    <div class="modal fade" id="modalMapStation" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="storeAddress"></h5>
+                </div>
 
+                <div id="mapView">
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal to show supply detail -->
+   <div class="modal fade" id="modalProduct" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productName"></h5>
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="productImage"></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div><strong>Price:</strong></div>
+                        <div id="productPrice"></div>
+                        <div><strong>Rate:</strong></div>
+                        <div id="productRate"></div>
+                        <div><strong>Description:</strong></div>
+                        <div id="productDescription"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
