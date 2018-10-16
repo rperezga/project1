@@ -1,41 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hurricane Ready</title>
-        <link rel="shortcut icon" href="./img/icon.png">
-        <meta name="description" content="Perpare for the storm with Hurricane Ready">
-        <meta name="keywords" content="hurricane preparedness, hurricane supplies, gas finder, hurricane supply list">
-        
-        <link rel="stylesheet" href="css/styles-merged.css">
-        <link rel="stylesheet" href="css/style.min.css">
-        <link rel="stylesheet" href="fonts/icomoon/style.css">
-        <link rel="stylesheet" href="css/homepage-style.css">
-        <link rel="stylesheet" href="css/weather.css">
-        <link rel="stylesheet" href="css/alt-style.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-            crossorigin="anonymous">
-        <!-- JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-default probootstrap-navbar">
-            <div class="container">
-                <div class="navbar-header">
-                    <div class="navbar-brand">
-                        <a href="index.html"><img src="img/logo.png" alt="logo" id="logo"></a>
-                    </div>
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    </button>
-                </div>
+    <title>Welcome to Hurricane Ready</title>
+    <link rel="shortcut icon" href="./assest/images/icon.png">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="assest/css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assest/javascript/supplies.js"></script>
+</head>
+
+<body>
 
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -127,28 +114,102 @@
                         <h5 class="modal-title" id="productName"></h5>
                     </div>
 
-                    <div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div id="productImage"></div>
-                            </div>
-                            <div class="col-md-8">
-                                <div><strong>Price:</strong></div>
-                                <div id="productPrice"></div>
-                                <div><strong>Rate:</strong></div>
-                                <div id="productRate"></div>
-                                <div><strong>Description:</strong></div>
-                                <div id="productDescription"></div>
-                            </div>
+            <form id="findProducts">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="inputSearch">Search Product</label>
+                            <input type="text" class="form-control" id="inputSearch" placeholder="Product Name">
                         </div>
                     </div>
+                </div>
+                <div class="button-submit" style="text-align: right">
+                    <button type="submit" class="btn btn-outline-success" id="searchSubmit">Find Products</button>
+                </div>
+            </form>
+            <div class="line"></div>
+            <div class="resultSupliesList">
+                <table class="table table-hover" style="margin-top: 30px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Product Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataSupplies"> </tbody>
+                </table>
+            </div>
+            <div class="line"></div>
+            <div class="resultStores">
+                <table class="table table-hover" style="margin-top: 30px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Store Name</th>
+                            <th scope="col">Store Phone</th>
+                            <th scope="col">View Map</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataStores"> </tbody>
+                </table>
+            </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+        </div>
+    </div>
+
+    <!-- Modal to show MAP -->
+    <div class="modal fade" id="modalMapStation" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="storeAddress"></h5>
+                </div>
+
+                <div id="mapView">
+                    
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Modal to show supply detail -->
+   <div class="modal fade" id="modalProduct" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productName"></h5>
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="productImage"></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div><strong>Price:</strong></div>
+                        <div id="productPrice"></div>
+                        <div><strong>Rate:</strong></div>
+                        <div id="productRate"></div>
+                        <div><strong>Description:</strong></div>
+                        <div id="productDescription"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
