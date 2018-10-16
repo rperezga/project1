@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
+    <script type="text/javascript" src="assest/javascript/app.js"></script>
+   
 </head>
 
 <body>
@@ -28,7 +30,7 @@
             <ul class="list-unstyled components">
                 <p style="font-size: 1.5em;">MENU</p>
                 <li>
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
+                    <a href="index.html"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="supplies.html"><i class="fa fa-shopping-basket"></i> Supplies</a>
@@ -68,30 +70,39 @@
                 </div>
             </nav>
 
-            <h2>Create a Hurricane Checklist</h2>
+            <h2 style="color: rgb(216, 0, 0)">Create a Hurricane Checklist</h2>
             <div class="line"></div>
-            <p>
-                Type an item below and click "Add" to add it to your hurricane supplies list.
-            </p>
+            
+            <!--Instructions for checklist-->
+            <p id="checklistP">Type an item below and click "Add" or press "enter" to add it to your hurricane supplies list.</p>
+            <p id="checklistP">Some common hurricane necessities were already added to your list.</p>
+            <p id="checklistP">Click on the "x" to the right of an item to delete it.</p>
+          
+            <!--Text box and button for checklist-->
             <div>
                 <input type="text" id="myInput" placeholder="Type here...">
-                <span onclick="newElement()" class="addBtn"><button>Add</button></span>
+                <span onclick="newElement()" class="addBtn"><button class="btnAdd">Add</button></span>
             </div>
 
+            <!--Checklist with items pre-added-->
+            <div id="checklist">
             <ul id="myUL">
+                <h3>Hurricane Checklist:</h3>
                 <li>canned food</li>
                 <li>water</li>
                 <li>flashlight</li>
                 <li>emergency first aid kit</li>
                 
             </ul>
-
             </div>
+
+        </div>
 
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Script -->
+    
 
    
 
@@ -113,5 +124,5 @@
             });
         });
     </script>
-    <script type="text/javascript" src="assest/javascript/app.js"></script>
+    
 </body>

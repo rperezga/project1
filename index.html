@@ -1,103 +1,348 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hurricane Ready</title>
+  <link rel="shortcut icon" href="./img/icon.png">
+  <meta name="description" content="Perpare for the storm with Hurricane Ready">
+  <meta name="keywords" content="hurricane preparedness, hurricane supplies, gas finder, hurricane supply list">
 
-    <title>Welcome to Hurricane Ready</title>
-    <link rel="shortcut icon" href="./assest/images/icon.png">
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="assest/css/style.css">
+  <link rel="stylesheet" href="css/styles-merged.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="css/homepage-style.css">
+  <link rel="stylesheet" href="css/weather.css">
+  <link rel="stylesheet" href="css/weather-icons.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-        crossorigin="anonymous">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="./assest/javascript/app.js"></script>
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- <script src="./assset/javascript/app.js"></script> -->
 </head>
 
 <body>
 
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <nav id="sidebar">
-            <ul class="list-unstyled components">
-                <p style="font-size: 1.5em;">MENU</p>
-                <li class="active">
-                    <a href="#"><i class="fa fa-home"></i> Home</a>
-                </li>
-                <li>
-                    <a href="supplies.html"><i class="fa fa-shopping-basket"></i> Supplies</a>
-                </li>
-                <li>
-                    <a href="checklist.html"><i class="fa fa-list-alt"></i> Check List</a>
-                </li>
-                <li>
-                    <a href="gasfinder.html"><i class="fas fa-gas-pump"></i> Gas Finder</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-phone"></i> Emergency Numbers</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-link"></i> Helpful Links</a>
-                </li>
-            </ul>
-        </nav>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default probootstrap-navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <div class="navbar-brand">
+          <img src="img/logo.png" alt="logo" id="logo">
+        </div>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
+      <div id="navbar-collapse" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="supplies.html">Supplies</a></li>
+          <li><a href="checklist.html" data-nav-section="reviews">Checklist</a></li>
+          <li><a href="gasfinder.html" data-nav-section="contact">Gas Finder</a></li>
+          <li><a href="emergency.html" data-nav-section="contact">Emergency Numbers</a></li>
+          <li><a href="#" data-nav-section="contact">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <section class="probootstrap-hero prohttp://localhost/probootstrap/frame/#featuresbootstrap-slant" style="background-image: url(img/HurricaneBkgrd.jpg);"
+    data-section="home" data-stellar-background-ratio="0.5">
 
-        <!-- Page Content Holder -->
-        <div id="content">
-            
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
+    <div class="container" id="wrapper">
+      <div class="container-fluid" id="current-weather">
+        <div class="row">
 
-                    <div class="navbar-header">
-                        <button type="button" id="sidebarCollapse" class="navbar-btn">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
+          <!-- Right panel -->
+          <div class="col-md-4 col-sm-5">
+            <h5><span id="cityName"></span>, <span id="cityCode"></span></h5>
+            <h6 id="localDate"></h6>
+            <h5 id="localTime"></h5>
+            <a id="refreshButton" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Refresh</a>
+          </div>
 
-                    <div class="logo-pos">
-                        <img src="./assest/images/logo.png" alt="" class="logo">
-                    </div>
-                </div>
-            </nav>
+          <!-- Center panel -->
+          <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
+            <div class="row">
+              <i class="wi" id="main-icon" style="font-size: 85px;"></i>
+              <div>
+                <span id="mainTemperature"></span>
+                <p id="tempDescription"></p>
+              </div>
+              <p style="font-size: 1.5rem;"><a href="#" class="active" id="celcius">°C</a> | <a href="#" id="farenheit">°F</a></p>
+            </div>
+          </div>
 
-            <h2>Content going HERE</h2>
-            <div id="line"></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-                <button id="track">Track Storm</button>
+          <!-- Left panel -->
+          <div class="col-xs-12 col-sm-12 col-md-3 row" style="text-align: right;">
+            <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+              <h6>Humidity: <span id="humidity"></span>%</h6>
+            </div>
+            <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+              <h6>Wind: <span id="wind"></span> m/s</h6>
+            </div>
+            <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+              <h6>High: <span id="mainTempHot"></span>°</h6>
+            </div>
+            <div class="col-md-12 col-sm-3 col-xs-3 side-weather-info">
+              <h6>Low: <span id="mainTempLow"></span>°</h6>
+            </div>
+          </div>
 
         </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="protocol-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <p>Due to weather api restrictions, data can only be shown via HTTP request.</p>
+              <p>Sorry for the inconvenience.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 days forecast -->
+      <div class="container-fluid">
+        <div class="row" style="padding: 2px;">
+
+          <!-- Day 1 -->
+          <div class="col-md-3 col-sm-6 day-weather-box">
+            <div class="col-sm-12 day-weather-inner-box">
+              <div class="col-sm-8 forecast-main">
+                <p id="forecast-day-1-name"></p>
+                <div class="row">
+                  <h5 id="forecast-day-1-main">°</h5>
+                  <i class="wi forecast-icon" id="forecast-day-1-icon"></i>
+                </div>
+              </div>
+              <div class="col-sm-4 forecast-min-low">
+                <p><span class="high-temperature" id="forecast-day-1-ht"></span></p>
+                <p><span class="low-temperature" id="forecast-day-1-lt"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="col-md-3 col-sm-6 day-weather-box">
+            <div class="col-sm-12 day-weather-inner-box">
+              <div class="col-sm-8 forecast-main">
+                <p id="forecast-day-2-name"></p>
+                <div class="row">
+                  <h5 id="forecast-day-2-main">°</h5>
+                  <i class="wi forecast-icon" id="forecast-day-2-icon"></i>
+                </div>
+              </div>
+              <div class="col-sm-4 forecast-min-low">
+                <p><span class="high-temperature" id="forecast-day-2-ht"></span></p>
+                <p><span class="low-temperature" id="forecast-day-2-lt"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="col-md-3 col-sm-6 day-weather-box">
+            <div class="col-sm-12 day-weather-inner-box">
+              <div class="col-sm-8 forecast-main">
+                <p id="forecast-day-3-name"></p>
+                <div class="row">
+                  <h5 id="forecast-day-3-main">°</h5>
+                  <i class="wi forecast-icon" id="forecast-day-3-icon"></i>
+                </div>
+              </div>
+              <div class="col-sm-4 forecast-min-low">
+                <p><span class="high-temperature" id="forecast-day-3-ht"></span></p>
+                <p><span class="low-temperature" id="forecast-day-3-lt"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 4 -->
+          <div class="col-md-3 col-sm-6 day-weather-box">
+            <div class="col-sm-12 day-weather-inner-box">
+              <div class="col-sm-8 forecast-main">
+                <p id="forecast-day-4-name"></p>
+                <div class="row">
+                  <h5 id="forecast-day-4-main">°</h5>
+                  <i class="wi forecast-icon" id="forecast-day-4-icon"></i>
+                </div>
+              </div>
+              <div class="col-sm-4 forecast-min-low">
+                <p><span class="high-temperature" id="forecast-day-4-ht"></span></p>
+                <p><span class="low-temperature" id="forecast-day-4-lt"></span></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+            <!-- <span class="icon icon-phone3"></span> -->
+            <i class="icon icon-thunder-cloud"></i>
+            <h2>Track Storms</h2>
+            <p>Stay ahead of the storm with the <em>Hurricane Ready </em>storm tracker.</p>
+            <p><a href="#" class="probootstrap-link">Learn More <i class="icon-chevron-right"></i></a></p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+            <i class="fas fa-gas-pump fa-4x" style="color:white; margin-bottom: 35px" id="icons-section2"></i>
+            <h2>Search For Gas</h2>
+            <p>No more driving around aimlessly looking for gas stations. Let <em>Hurricane Ready</em> help you find
+              gas faster. </p>
+            <p><a href="#" class="probootstrap-link">Learn More <i class="icon-chevron-right"></i></a></p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+            <span class="icon icon-shopping-cart"></span>
+            <h2>Supplies</h2>
+            <p>Know before you go. Before you head to the store, use the conveinient supply checker to check your local
+              store's inventory</p>
+            <p><a href="#" class="probootstrap-link">Learn More <i class="icon-chevron-right"></i></a></p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="probootstrap-service-item probootstrap-animate" data-animate-effect="fadeIn">
+            <span class="icon icon-clipboard3"></span>
+            <h2>Checklist</h2>
+            <p>Don't forget a thing! Stay organized with the conveinient checklist creator.</p>
+            <p><a href="#" class="probootstrap-link">Learn More <i class="icon-chevron-right"></i></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section probootstrap-bg-light" data-section="reviews">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-8 col-md-offset-2 probootstrap-section-heading">
+          <h2 class="mb30 text-black probootstrap-heading">Create a Hurricane Checklist</h2>
+          <p><em>Click and drag to reorder, double click to cross an item off.</em></p>
+          <form name="toDoList">
+            <input type="text" name="ListItem" />
+          </form>
+          <div id="button">Add</div>
+          <br />
+          <ol></ol>
+        </div>
+      </div>
     </div>
 
+  </section>
+
+  <section class="probootstrap-section probootstrap-cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h2 class="probootstrap-heading">Join With Over 100K Members</h2>
+          <p class="probootstrap-sub-heading">But nothing the copy said could convince her and so it didn’t take long
+            until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into
+            their agency, where they abused her for their.</p>
+          <p><a href="#" class="btn btn-black">Get Started</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section probootstrap-bg-light" data-section="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form action="" class="probootstrap-form">
+            <h2 class="text-black mt0">Get In Touch</h2>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Phone">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" cols="30" rows="10" placeholder="Write a Message"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="Send Message">
+            </div>
+          </form>
+        </div>
+        <div class="col-md-3 col-md-push-1">
+          <ul class="probootstrap-contact-details">
+            <li>
+              <span class="text-uppercase">Email</span>
+              probootstrap@gmail.com
+            </li>
+            <li>
+              <span class="text-uppercase">Phone</span>
+              +30 976 1382 9921
+            </li>
+            <li>
+              <span class="text-uppercase">Fax</span>
+              +30 976 1382 9922
+            </li>
+            <li>
+              <span class="text-uppercase">Address</span>
+              San Francisco, CA <br>
+              4th Floor8 Lower <br>
+              San Francisco street, M1 50F
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+  <footer class="probootstrap-footer">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="probootstrap-social"><a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-facebook2"></i></a>
+            <a href="#"><i class="icon-instagram2"></i></a><a href="#"><i class="icon-linkedin"></i></a></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          &copy; 2017 <a href="https://uicookies.com/">uiCookies:Frame</a>. All Rights Reserved. <br> Designed &amp;
+          Developed by <a href="https://uicookies.com">uicookies.com</a> <br> Demo Images by <a href="https://unsplash.com">Unsplash</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                $(this).toggleClass('active');
-            });
-        });
-    </script>
+
+
+  <script src="js/scripts.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/weather.js"></script>
+
 </body>
 
 </html>
