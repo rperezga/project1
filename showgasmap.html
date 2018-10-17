@@ -3,7 +3,7 @@
 
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="javascript/supplies.js"></script>
+    <script src="javascript/findgas.js"></script>
 </head>
 
 <body>
@@ -12,11 +12,11 @@
 
     <script>
         function initMap() {
-            
-            var storelat = parseFloat(localStorage.getItem("storelat"));
-            var storelong = parseFloat(localStorage.getItem("storelong"));
+            console.log("Local Storage: " + localStorage);
+            var lat = parseFloat(localStorage.getItem("lat"));
+            var long = parseFloat(localStorage.getItem("long"));
 
-            coordenates = { lat: storelat, lng: storelong };
+            coordenates = { lat: lat, lng: long };
             var map = new google.maps.Map(
                 document.getElementById('map'), { zoom: 12, center: coordenates });
             var marker = new google.maps.Marker({ position: coordenates, map: map });

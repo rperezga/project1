@@ -22,9 +22,9 @@ $(document).ready(function() {
 
     function showPosition(position) {
 
-        currentCoordinates = {'lat': position.coords.latitude, 'lon': position.coords.longitude};
+        currentCoordinates = {'storelat': position.coords.latitude, 'storelon': position.coords.longitude};
 
-        var queryUrl = "https://api.walmartlabs.com/v1/stores?format=json&lat=" + currentCoordinates.lat + "&lon=" + currentCoordinates.lon + "&apiKey=rmrt3yqsdejv4k8fpvefa58t";
+        var queryUrl = "https://api.walmartlabs.com/v1/stores?format=json&lat=" + currentCoordinates.storelat + "&lon=" + currentCoordinates.storelon + "&apiKey=rmrt3yqsdejv4k8fpvefa58t";
             
         $.ajax({
             url: queryUrl,
@@ -48,10 +48,10 @@ $(document).ready(function() {
                 var colPhone = $("<td>");   
                 colPhone.append(response[i].phoneNumber);
 
-                var colMap = $("<td id='map'>");
+                var colMap = $("<td id='mapStore'>");
                 colMap.append("<i class='fas fa-map-marked-alt'></i>");
                 colMap.attr("data-toggle", "modal");
-                colMap.attr("data-target", "#modalMapStation");
+                colMap.attr("data-target", "#modalMapStore");
                 colMap.attr("data-lat", response[i].coordinates[1]);
                 colMap.attr("data-long", response[i].coordinates[0]);
                 colMap.attr("data-address", response[i].streetAddress + ', ' + response[i].city + ' ' + response[i].stateProvCode + ', ' + response[i].zip);
@@ -111,18 +111,21 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on("click", "#map", function () {
 
-        localStorage.setItem("lat", $(this).attr("data-lat"));
-        localStorage.setItem("long", $(this).attr("data-long"));
+    $(document).on("click", "#mapStore", function () {
 
-        var lat = localStorage.getItem("lat");
-        var long = localStorage.getItem("long");
-        console.log($(this).attr("data-address"));
+        console.log(  $(this).attr("data-lat")   )
+
+        localStorage.setItem("storelat", $(this).attr("data-lat"));
+        localStorage.setItem("storelong", $(this).attr("data-long"));
+
+        var storelat = localStorage.getItem("storelat");
+        var storelong = localStorage.getItem("storelong");
         $("#storeAddress").text($(this).attr("data-address"));
 
-        $("#mapView").html('<iframe src="showinmap.html" style="height: 430px; width: 100%"></iframe>');
+        $("#mapStoreView").html('<iframe src="showinmap.html" style="height: 430px; width: 100%"></iframe>');
     })
+
 
     $(document).on("click", ".productData", function () {
 
@@ -141,7 +144,6 @@ $(document).ready(function() {
             method: "GET"
         }).then(function (response) {
  
-            console.log(response)
             $("#productName").text(response.name);
             $("#productImage").html("<img src='" + response.largeImage + "' alt='' style='width:100%'>")
             $("#productPrice").text("$" + response.salePrice)
@@ -150,10 +152,5 @@ $(document).ready(function() {
  
         })
     })
-
-
-
-
-
 
 });
