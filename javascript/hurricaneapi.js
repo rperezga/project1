@@ -2,7 +2,7 @@
 
 
 //--------------------API for Displaying Forecast---------------------------------------------------------------------------------
-var forecast ="https://api.aerisapi.com/observations/:auto?&format=json&filter=allstations&limit=1&client_id=5MQ1RvB0ZRonDrmxEfyPq&client_secret=tvg7OeULoGZ8zMJhKD6MimPUerXrY2gli9EjtMT4";
+var forecast = "https://api.aerisapi.com/observations/:auto?&format=json&filter=allstations&limit=1&client_id=5MQ1RvB0ZRonDrmxEfyPq&client_secret=tvg7OeULoGZ8zMJhKD6MimPUerXrY2gli9EjtMT4";
 console.log(forecast);
 
 
@@ -21,7 +21,7 @@ $.ajax({
         var displayForecast = forecastResponse.response;
         console.log(displayForecast);
 
-        
+
         var country = displayForecast.place.country;
         var city = displayForecast.place.city;
         var state = displayForecast.place.state;
@@ -33,10 +33,10 @@ $.ajax({
         var fahrenheit = displayForecast.ob.tempF;
         var weather = displayForecast.ob.weather;
         var windGust = displayForecast.ob.windGustSpeedMPH;
-        var windSpeed= displayForecast.ob.windSpeedMPH;
+        var windSpeed = displayForecast.ob.windSpeedMPH;
         var windDirection = displayForecast.ob.windDir;
         var icon = displayForecast.ob.icon;
-        
+
         console.log(country);
         console.log(icon);
         console.log(windSpeed);
@@ -55,40 +55,7 @@ $.ajax({
         $("#windGust").text(windGust);
         $("#windSpeed").text(windSpeed);
         $("#windDirection").text(windDirection);
-        
-//weather animiation
-// var animation = new AerisMaps.Visualizer(document.getElementById("animation"),{
-//     loc: "seattle,wa",
-//     keys: {
-//         id: '5MQ1RvB0ZRonDrmxEfyPq',
-//         secret: 'tvg7OeULoGZ8zMJhKD6MimPUerXrY2gli9EjtMT4'
-//     },
-//     map: {
-//         zoom: 7,
-//         size: {
-//             width: 500,
-//             height: 300
-//         },
-//         layers: ["flat","ftemps-hrrr","water","counties","admin"]
-//     },
-//     animation: {
-//         from: 0 * 3600,
-//         to: 12 * 3600,
-//         intervals: 10,
-//         duration: 2
-//     },
-//     overlays: {
-//         title: "Forecast Temps",
-//         branding: {
-//             img: "https://www.aerisweather.com/img/logos/watermark-small.png"
-//         }
 
-//     }
-    
-   
-// });
-
-   
     });
 
 //--------------------API for Storm Tracker---------------------------------------------------------------------------------
@@ -120,7 +87,7 @@ $(document).on("click", "#track", function () {
             var results = response.response;
             console.log(results);
 
-            
+
 
             // Creating a paragraph tag with the result item's rating
 
@@ -138,24 +105,22 @@ $(document).on("click", "#track", function () {
 
                 console.log(results[i].profile.name);
 
-            // Create the new row
-  var newRow = $("<tr>").append(
-    $("<td class='tblType'>").text(stormType1),
-    $("<td class='tblName'>").text(stormName1),
-    $("<td class='tblMove'>").text(stormDirection.direction),
-    $("<td class='tblSpeed'>").text(stormSpeed1),
-    $("<td class='tblLong'>").text(long1),
-    $("<td class='tblLat'>").text(lat1),
-  );
+                // Create the new row
+                var newRow = $("<tr>").append(
+                    $("<td class='tblType'>").text(stormType1),
+                    $("<td class='tblName'>").text(stormName1),
+                    $("<td class='tblMove'>").text(stormDirection.direction),
+                    $("<td class='tblSpeed'>").text(stormSpeed1),
+                    $("<td class='tblLong'>").text(long1),
+                    $("<td class='tblLat'>").text(lat1),
+                );
 
-  // Append the new row to the table
-  $("#storm-table > tbody").append(newRow);
+                // Append the new row to the table
+                $("#storm-table > tbody").append(newRow);
 
 
-                
+
             }
-
-
 
         });
 });
