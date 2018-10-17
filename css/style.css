@@ -1,0 +1,104 @@
+#day1{
+    width: 22%; 
+    margin: 15px 1% 15px 3%;
+}
+
+#day2{
+    width: 22%; 
+    margin: 15px 1%;
+}
+
+#day3{
+    width: 22%; 
+    margin: 15px 1%;
+}
+
+#day4{
+    width: 22%; 
+    margin: 15px 2% 15px 1%;
+}
+
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 990px) {
+    #wrapper{
+        width: 90%;
+    }
+
+    #mainWeather{
+        text-align: center
+    }
+
+    .day-weather-box{
+        width: 80%;
+        text-align: center;
+    }
+
+    #day1{
+        float: left;
+        width: 22%; 
+        margin: 15px 1%;
+        margin-left: 3%;
+    }    
+    
+    #day2{
+        float: left;
+        width: 22%; 
+        margin: 15px 1%;
+    }
+    
+    #day3{
+        float: left;
+        width: 22%; 
+        margin: 15px 1%;
+    }
+    
+    #day4{
+        float: left;
+        width: 22%; 
+        margin: 15px 2% 15px 1%;
+    }    
+
+}
+
+
+@media (max-width: 770px) {
+    #wrapper{
+        width: 90%;
+    }
+
+    #mainWeather{
+        text-align: center
+    }
+
+    #day1{
+        width: 60%;
+        text-align: center;
+        margin: 2px auto;
+    }
+    
+    #day2{
+        width: 80%;
+        text-align: center;
+        margin: 2px auto;
+    }
+    
+    #day3{
+        width: 80%;
+        text-align: center;
+        margin: 2px auto;
+    }
+    
+    #day4{
+        width: 80%;
+        text-align: center;
+        margin: 2px auto;
+    }
+
+    
+
+}
+

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="font/icomoon/style.css">
   <link rel="stylesheet" href="css/homepage-style.css">
   <link rel="stylesheet" href="css/weather.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/weather-icons.css">
   <link rel="stylesheet" href="css/weather-icons-wind.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -77,7 +78,7 @@
 
           <!-- Center panel -->
           <div class="col-md-5 col-sm-7" style="margin: 10px auto;padding:0;">
-            <div class="row">
+            <div class="row" id="mainWeather">
               <i class="wi" id="main-icon" style="font-size: 85px;"></i>
               <div>
                 <span id="mainTemperature"></span>
@@ -125,94 +126,76 @@
       </div>
 
       <!-- 4 days forecast -->
-      <div class="container-fluid">
-        <div class="row" style="padding: 2px;">
+      <div class="row" style="padding: 2px;">
 
-          <!-- Day 1 -->
-          <div class="col-md-3 col-sm-6 day-weather-box" style="width: 22%; margin: 15px 1% 15px 3%;">
-            <div class="col-sm-12 day-weather-inner-box">
-              <div class="col-sm-8 forecast-main">
-                <p id="forecast-day-1-name"></p>
-                <div class="row">
-                  <div class="col-sm-4">
-                    <h5 id="forecast-day-1-main">°</h5>
-                  </div>
-                  <div class="col-sm-4">
-                    <i class="wi forecast-icon" id="forecast-day-1-icon"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 forecast-min-low">
-                <p><span class="high-temperature" id="forecast-day-1-ht"></span></p>
-                <p><span class="low-temperature" id="forecast-day-1-lt"></span></p>
+        <!-- Day 1 -->
+        <div class="col-md-3 day-weather-box" id="day1">
+          <div class="col-sm-12 day-weather-inner-box">
+            <div class="col-sm-8 forecast-main">
+              <p id="forecast-day-1-name"></p>
+              <div class="row">
+                <h5 id="forecast-day-1-main" style="float: left; margin-right: 10px;">°</h5>
+                <i class="wi forecast-icon" id="forecast-day-1-icon" style="float: left"></i>
               </div>
             </div>
-          </div>
-
-          <!-- Day 2 -->
-          <div class="col-md-3 col-sm-6 day-weather-box" style="width: 22%; margin: 15px 1%;">
-            <div class="col-sm-12 day-weather-inner-box">
-              <div class="col-sm-8 forecast-main">
-                <p id="forecast-day-2-name"></p>
-                <div class="row">
-                  <div class="col-sm-4">
-                    <h5 id="forecast-day-2-main">°</h5>
-                  </div>
-                  <div class="col-sm-4">
-                    <i class="wi forecast-icon" id="forecast-day-2-icon"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 forecast-min-low">
-                <p><span class="high-temperature" id="forecast-day-2-ht"></span></p>
-                <p><span class="low-temperature" id="forecast-day-2-lt"></span></p>
-              </div>
+            <div class="col-sm-4 forecast-min-low">
+              <p><span class="high-temperature" id="forecast-day-1-ht"></span></p>
+              <p><span class="low-temperature" id="forecast-day-1-lt"></span></p>
             </div>
           </div>
-
-          <!-- Day 3 -->
-          <div class="col-md-3 col-sm-6 day-weather-box" style="width: 22%; margin: 15px 1%;">
-            <div class="col-sm-12 day-weather-inner-box">
-              <div class="col-sm-8 forecast-main">
-                <p id="forecast-day-3-name"></p>
-                <div class="row">
-                  <div class="col-sm-4">
-                    <h5 id="forecast-day-3-main">°</h5>
-                  </div>
-                  <div class="col-sm-4">
-                    <i class="wi forecast-icon" id="forecast-day-3-icon"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 forecast-min-low">
-                <p><span class="high-temperature" id="forecast-day-3-ht"></span></p>
-                <p><span class="low-temperature" id="forecast-day-3-lt"></span></p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Day 4 -->
-          <div class="col-md-3 col-sm-6 day-weather-box" style="width: 22%; margin: 15px 2% 15px 1%;">
-            <div class="col-sm-12 day-weather-inner-box">
-              <div class="col-sm-8 forecast-main">
-                <p id="forecast-day-4-name"></p>
-                <div class="row">
-                  <div class="col-sm-4">
-                    <h5 id="forecast-day-4-main">°</h5>
-                  </div>
-                  <div class="col-sm-4">
-                    <i class="wi forecast-icon" id="forecast-day-4-icon"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 forecast-min-low">
-                <p><span class="high-temperature" id="forecast-day-4-ht"></span></p>
-                <p><span class="low-temperature" id="forecast-day-4-lt"></span></p>
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Day 2 -->
+        <div class="col-md-3 day-weather-box" id="day2">
+          <div class="col-sm-12 day-weather-inner-box">
+            <div class="col-sm-8 forecast-main">
+              <p id="forecast-day-2-name"></p>
+              <div class="row" style="width: 70px;">
+                <h5 id="forecast-day-2-main" style="float: left; margin-right: 10px;">°</h5>
+                <i class="wi forecast-icon" id="forecast-day-2-icon" style="float: left"></i>
+              </div>
+            </div>
+            <div class="col-sm-4 forecast-min-low">
+              <p><span class="high-temperature" id="forecast-day-2-ht"></span></p>
+              <p><span class="low-temperature" id="forecast-day-2-lt"></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="col-md-3 day-weather-box" id="day3">
+          <div class="col-sm-12 day-weather-inner-box">
+            <div class="col-sm-8 forecast-main">
+              <p id="forecast-day-3-name"></p>
+              <div class="row" style="width: 70px;">
+                <h5 id="forecast-day-3-main" style="float: left; margin-right: 10px;">°</h5>
+                <i class="wi forecast-icon" id="forecast-day-3-icon" style="float: left"></i>
+              </div>
+            </div>
+            <div class="col-sm-4 forecast-min-low">
+              <p><span class="high-temperature" id="forecast-day-3-ht"></span></p>
+              <p><span class="low-temperature" id="forecast-day-3-lt"></span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="col-md-3 day-weather-box" id="day4">
+          <div class="col-sm-12 day-weather-inner-box">
+            <div class="col-sm-8 forecast-main">
+              <p id="forecast-day-4-name"></p>
+              <div class="row" style="width: 70px;">
+                <h5 id="forecast-day-4-main" style="float: left; margin-right: 10px;">°</h5>
+                <i class="wi forecast-icon" id="forecast-day-4-icon" style="float: left"></i>
+              </div>
+            </div>
+            <div class="col-sm-4 forecast-min-low">
+              <p><span class="high-temperature" id="forecast-day-4-ht"></span></p>
+              <p><span class="low-temperature" id="forecast-day-4-lt"></span></p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
