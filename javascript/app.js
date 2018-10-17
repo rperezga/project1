@@ -1,6 +1,4 @@
 $(function () {
-
-<<<<<<< HEAD
    var state = '';
    var gasType = '';
    var zip = '';
@@ -97,7 +95,6 @@ $(function () {
    })
 
 })
-=======
     var state = '';
     var gasType = '';
     var zip = '';
@@ -197,14 +194,7 @@ $(function () {
         $("#mapView").html('<iframe src="showinmap.html" style="height: 430px; width: 100%"></iframe>');
 
         console.log(lat + "  " + long)
-    })
-
-    
-
-
-
-
-})
+    });
 
 
 //Javascript for checklist.html
@@ -227,12 +217,12 @@ for(var i = 0; i < close.length; i++){
     }
 }
 
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev){
-    if(ev.target.tagName === 'LI'){
-        ev.target.classList.toggle('checked');
-    }
-}, false);
+// var list = document.querySelector('ul');
+// list.addEventListener('click', function(ev){
+//     if(ev.target.tagName === 'LI'){
+//         ev.target.classList.toggle('checked');
+//     }
+// }, false);
 
 //add an item to checklist
 function newElement(){
@@ -310,4 +300,3 @@ $(document).on("click", "#track", function() {
       });
   });
   // end hurricane Tracker API
->>>>>>> d8b05afb1ea1a9c2439352fe63162713d32a6b43

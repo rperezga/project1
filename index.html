@@ -19,8 +19,8 @@
   <link rel="stylesheet" href="css/weather-icons-wind.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="javascript/supplies.js"></script>
   <!-- JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- <script src="./assset/javascript/app.js"></script> -->
@@ -46,8 +46,13 @@
 
       <div id="navbar-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
           <li><a href="supplies.html">Supplies</a></li>
           <li><a href="checklist.html" data-nav-section="supplies">Checklist</a></li>
+=======
+          <li><a href="#" data-nav-section="supplies">Supplies</a></li>
+          <li><a href="checklist.html" data-nav-section="reviews">Checklist</a></li>
+>>>>>>> e51e94a6408ab304aff8f6d94bfa83f176e099b4
           <li><a href="gasfinder.html" data-nav-section="contact">Gas Finder</a></li>
           <li><a href="emergency.html" data-nav-section="contact">Emergency Numbers</a></li>
           <li><a href="#" data-nav-section="contact">Login</a></li>
@@ -320,7 +325,122 @@
     </div>
   </section>
 
+  <section class="probootstrap-section" id="supply-form" data-section="supplies">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-black mt0">Check for products in Walmart</h2>
+        </div>
+        <div class="row"></div>
+            <form id="findProducts">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="inputSearch">Search Product</label>
+                            <input type="text" class="form-control" id="inputSearch" placeholder="Product Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-submit" style="text-align: right">
+                    <button type="submit" class="btn btn-outline-success" id="searchSubmit">Find Products</button>
+                </div>
+            </form>
+        </div>
+        <div class="line"></div>
+        <div class="resultSupliesList">
+            <table class="table table-hover" style="margin-top: 30px;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Product Price</th>
+                    </tr>
+                </thead>
+                <tbody id="dataSupplies"> </tbody>
+            </table>
+        </div>
+        <div class="line"></div>
+        <div class="resultStores">
+            <table class="table table-hover" style="margin-top: 30px;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Store Name</th>
+                        <th scope="col">Store Phone</th>
+                        <th scope="col">View Map</th>
+                    </tr>
+                </thead>
+                <tbody id="dataStores"> </tbody>
+            </table>
+        </div>
+    </div>    
+  </section>
 
+  <!-- Modal to show MAP -->
+  <div class="modal fade" id="modalMapStation" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="storeAddress"></h5>
+            </div>
+
+            <div id="mapView">
+                
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal to show supply detail -->
+<div class="modal fade" id="modalProduct" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productName"></h5>
+            </div>
+
+        <form id="findProducts">
+          <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="inputSearch">Search Product</label>
+                    <input type="text" class="form-control" id="inputSearch" placeholder="Product Name">
+                </div>
+            </div>
+          </div>
+          <div class="button-submit" style="text-align: right">
+            <button type="submit" class="btn btn-outline-success" id="searchSubmit">Find Products</button>
+          </div>
+        </form>
+        <div class="line"></div>
+        <div class="resultSupliesList">
+          <table class="table table-hover" style="margin-top: 30px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Product Price</th>
+                </tr>
+            </thead>
+            <tbody id="dataSupplies"> </tbody>
+          </table>
+        </div>
+        <div class="line"></div>
+        <div class="resultStores">
+          <table class="table table-hover" style="margin-top: 30px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Store Name</th>
+                    <th scope="col">Store Phone</th>
+                    <th scope="col">View Map</th>
+                </tr>
+            </thead>
+            <tbody id="dataStores"> </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
   <footer class="probootstrap-footer">
     <div class="container text-center">
       <div class="row">
@@ -337,8 +457,6 @@
       </div>
     </div>
   </footer>
-
-
 
   <script src="js/scripts.min.js"></script>
   <script src="js/custom.js"></script>
