@@ -24,7 +24,7 @@ $(document).ready(function() {
 
         currentCoordinates = {'lat': position.coords.latitude, 'lon': position.coords.longitude};
 
-        var queryUrl = "http://api.walmartlabs.com/v1/stores?format=json&lat=" + currentCoordinates.lat + "&lon=" + currentCoordinates.lon + "&apiKey=rmrt3yqsdejv4k8fpvefa58t";
+        var queryUrl = "https://api.walmartlabs.com/v1/stores?format=json&lat=" + currentCoordinates.lat + "&lon=" + currentCoordinates.lon + "&apiKey=rmrt3yqsdejv4k8fpvefa58t";
             
         $.ajax({
             url: queryUrl,
@@ -76,7 +76,7 @@ $(document).ready(function() {
         $("#inputSearch").val(null);
 
         event.preventDefault();
-        var queryUrl = "http://api.walmartlabs.com/v1/search?query=" + productName + "&format=json&apiKey=rmrt3yqsdejv4k8fpvefa58t";
+        var queryUrl = "https://api.walmartlabs.com/v1/search?query=" + productName + "&format=json&apiKey=rmrt3yqsdejv4k8fpvefa58t";
 
         // Creates AJAX call for stations button being clicked
         $.ajax({
@@ -130,7 +130,7 @@ $(document).ready(function() {
  
         var id = $(this).attr("data-id");
  
-        var walmartQuery = "http://api.walmartlabs.com/v1/items/" + id + "?format=json&apiKey=gxx7k9yurjvet2d8xbw3k29f";
+        var walmartQuery = "https://api.walmartlabs.com/v1/items/" + id + "?format=json&apiKey=gxx7k9yurjvet2d8xbw3k29f";
  
  
         // Creates AJAX call for stations button being clicked
