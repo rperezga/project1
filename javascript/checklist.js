@@ -13,8 +13,8 @@ $(function () {
 
     const db = firebase.firestore();
 
-    // var logged = localStorage.getItem("logged");
-    var logged = "true";
+    var logged = localStorage.getItem("logged");
+    //var logged = "true";
 
     if (logged == "false") {
         $("#login").attr("hidden", true);
