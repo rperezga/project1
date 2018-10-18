@@ -18,12 +18,39 @@
     margin: 15px 2% 15px 1%;
 }
 
+.navbar{
+    background-color: transparent;
+}
+
+.probootstrap-navbar .navbar-nav > li > a {
+    color: white;
+}
+
+#checklistlogin{
+    padding-bottom: 30px;
+}
+
 
 
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (max-width: 990px) {
+
+    #logo{
+        width: 180px;
+    }
+
+    
+
+    .nav{
+        background-color: transparent;
+    }
+
+    #navbar-collapse{
+        background-color: transparent;
+    }
+
     #wrapper{
         width: 90%;
     }
@@ -66,6 +93,11 @@
 
 
 @media (max-width: 770px) {
+
+    #logo{
+        width: 180px;
+    }
+
     #wrapper{
         width: 90%;
     }
@@ -74,28 +106,29 @@
         text-align: center
     }
 
+    #forDays{
+        width: 70%;
+        margin: 0 auto;
+    }
+
     #day1{
-        width: 60%;
+        width: 100%;
         text-align: center;
-        margin: 2px auto;
     }
     
     #day2{
-        width: 80%;
+        width: 100%;
         text-align: center;
-        margin: 2px auto;
     }
     
     #day3{
-        width: 80%;
+        width: 100%;
         text-align: center;
-        margin: 2px auto;
     }
     
     #day4{
-        width: 80%;
+        width: 100%;
         text-align: center;
-        margin: 2px auto;
     }
 
     
