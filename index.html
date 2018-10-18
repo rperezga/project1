@@ -352,28 +352,66 @@
           <form action="" class="probootstrap-form">
             <div class="row" id="chlist">
               <div class="col-xs-10 col-sm-11 col-md-11">
-                  <h2 class="text-black mt0">Get In Touch</h2>
+                <h2 class="text-black mt0" id="name"></h2>
               </div>
               <div class="col-xs-2 col-sm-1 col-md-1">
-                  <h2 class="text-black mt0" id="logout"><span class="icon icon-exit"></span></h2>
+                <h3 class="text-black mt0" id="logout"><span class="icon icon-exit"></span></h3>
               </div>
             </div>
-            
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Your Name">
+
+            <div class="row">
+
+              <div class="row" style="color: black; margin-bottom: 15px;">
+
+                <div class="col-md-6 col-md-offset-2">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="inputTask" placeholder='Type an item below to add it to your hurricane supplies list.'>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Add Item" style="width: 100%">
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-success" id="pendingBtn">View Ready List</button>
+
+              <div class="col-md-12" id="readyElements">
+                <div class="elementList">
+                  <table class="table table-hover" style="margin-top: 30px;">
+                    <thead class="thead-dark">
+                      <tr style="background: rgb(105, 173, 175);">
+                        <th scope="col">Pending List Element</th>
+                        <th scope="col">Mark as Ready</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody id="dataPending" style="color: black"> </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="col-md-12" id="unreadyElements">
+                <div class="elementList">
+                  <table class="table table-hover" style="margin-top: 30px;">
+                    <thead class="thead-dark">
+                      <tr style="background: rgb(105, 173, 175);">
+                        <th scope="col">Pending List Element</th>
+                        <th scope="col">Mark as Unready</th>
+                      </tr>
+                    </thead>
+                    <tbody id="dataReady" style="color: black"> </tbody>
+                  </table>
+                </div>
+              </div>
+
+
             </div>
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Your Email">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Your Phone">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" cols="30" rows="10" placeholder="Write a Message"></textarea>
-            </div>
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary" value="Send Message">
-            </div>
+
+
+
+
           </form>
         </div>
       </div>
