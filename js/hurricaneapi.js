@@ -87,13 +87,19 @@ $(document).on("click", "#track", function () {
             var results = response.response;
             console.log(results);
 
-
-
-            // Creating a paragraph tag with the result item's rating
-
+            if (results.length === 0) {
+                var noStorm = "The weather is perfect around the world, no storms brewing"
+                console.log(noStorm);
+                $("#clear").remove();
+                var noStormMessage = $("<tr id='clear'>").append(
+                    $("<td colspan='6' class='tblType'>").text(noStorm)
+                );
+                $("#storm-table > tbody").append(noStormMessage);
+            }
 
             // Looping through each result item
-            for (var i = 0; i < results.length; i++) {
+           else { 
+               for (var i = 0; i < results.length; i++) 
 
                 var stormType1 = results[i].position.details.stormType;
                 var stormName1 = results[i].position.details.stormName;
@@ -115,13 +121,15 @@ $(document).on("click", "#track", function () {
                     $("<td class='tblLat'>").text(lat1),
                 );
 
+                
+
                 // Append the new row to the table
                 $("#storm-table > tbody").append(newRow);
+                }
 
 
-
-            }
-
+            });
+        
         });
-});
+
   // end hurricane Tracker API
