@@ -15,9 +15,9 @@ $(function () {
 
     var logged = localStorage.getItem("logged");
     var email = localStorage.getItem("email");
-    var user = null;
-    // var logged = "true";
-    // var email = "rperez@gmail.com"
+
+    //var logged = "true";
+    //var email = "rperez@gmail.com"
 
     var exist = false;
 
@@ -238,36 +238,4 @@ $(function () {
 
         $("#inputTask").val('');
     })
-
-    function downloadToCsv(json) {
-
-        var csvContent = "data:text/csv;charset=utf-8,";
-
-        json.forEach(function (rowArray) {
-            var row = rowArray.join(",");
-            csvContent += row + "\r\n";
-        });
-
-        var encodedUri = encodeURI(csvContent);
-        window.open(encodedUri);
-    }
-
-    $("#downloadBtn").on("click", function (event) {
-        event.preventDefault();
-
-        db.collection("users").where("email", "==", user.email).get().then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                if (doc) {
-                    console.log(doc.data());
-                }
-            });
-        })
-        //downloadToCsv(json);
-    });
-
-
-
-
-
-
 })
