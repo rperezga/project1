@@ -92,6 +92,8 @@ $(function () {
         firebase.auth().signInWithPopup(provider)
             .then(result => {
 
+                user = result.user;
+
                 db.collection("users").where("email", "==", user.email).get().then(function (querySnapshot) {
                     querySnapshot.forEach(function (doc) {
                         if (doc) {
@@ -102,7 +104,7 @@ $(function () {
             
                 setTimeout(function () {
                     if (exist == true) {
-                        user = result.user;
+                        
                         localStorage.setItem("logged", true);
                         localStorage.setItem("user", user.displayName);
                         localStorage.setItem("email", user.email);
@@ -112,7 +114,6 @@ $(function () {
                     } else {
                         console.log("NEW USER")
                         newUser();
-                        user = result.user;
                         localStorage.setItem("logged", true);
                         localStorage.setItem("user", user.displayName);
                         localStorage.setItem("email", user.email);
@@ -200,6 +201,12 @@ $(function () {
         })
 
     });
+
+
+
+
+
+
 
     function downloadToCsv(json) {
 
