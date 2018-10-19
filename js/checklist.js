@@ -13,16 +13,19 @@ $(function () {
 
     const db = firebase.firestore();
 
-    // var logged = localStorage.getItem("logged");
-    var logged = "true";
+    var logged = localStorage.getItem("logged");
+    // var logged = "true";
+
     var ready = true;
     if (ready == false) {
         $("#readyElements").attr("hidden", true);
         $("#unreadyElements").attr("hidden", false);
+        $("#pendingBtn").text("View Pending List");
         ready = true;
     } else {
         $("#readyElements").attr("hidden", false);
         $("#unreadyElements").attr("hidden", true);
+        $("#pendingBtn").text("View Ready List");
         ready = false;
     }
 
@@ -32,10 +35,12 @@ $(function () {
         if (ready == false) {
             $("#readyElements").attr("hidden", true);
             $("#unreadyElements").attr("hidden", false);
+            $("#pendingBtn").text("View Pending List");
             ready = true;
         } else {
             $("#readyElements").attr("hidden", false);
             $("#unreadyElements").attr("hidden", true);
+            $("#pendingBtn").text("View Ready List");
             ready = false;
         }
     })
@@ -89,72 +94,107 @@ $(function () {
                     console.log("KEY: " + key);
                     console.log("VALUE: " + value);
 
-                    var rowElement = $("<tr>");
-                    rowElement.addClass("elementData");
-
                     if (value == false) {
-                        var colElement = $("<td>");
-                        colElement.append(key);
+                        var rowElementPending = $("<tr>");
+                        rowElementPending.addClass("elementData");
 
-                        var colChange = $("<td id='change'>");
-                        colChange.append("<i class='fas fa-angle-double-right'></i>");
-                        colChange.attr("data-id", doc.id);
-                        colChange.attr("data-status", doc.data().status);
-                        colChange.attr("data-element", doc.data().element);
-                        colChange.attr("data-status", doc.data().status);
-                        colChange.attr("data-user", doc.data().user);
+                        var colElementPending = $("<td>");
+                        colElementPending.append(key);
 
-                        var colErase = $("<td id='erase'>");
-                        colErase.append("<i class='fa fa-trash'></i>");
-                        colErase.attr("data-id", doc.id);
+                        var colChangePending = $("<td id='change'>");
+                        colChangePending.append("<i class='fas fa-angle-double-right'></i>");
+                        colChangePending.attr("data-id", doc.id);
+                        colChangePending.attr("data-email", doc.data().email);
+                        colChangePending.attr("data-key", key);
 
-                        rowElement.append(colElement)
-                            .append(colChange)
-                            .append(colErase)
+                        var colErasePending = $("<td id='erase'>");
+                        colErasePending.append("<i class='fa fa-trash'></i>");
+                        colErasePending.attr("data-id", doc.id);
 
-                        $("#dataPending").append(rowElement);
+                        rowElementPending.append(colElementPending)
+                            .append(colChangePending)
+                            .append(colErasePending)
+
+                        $("#dataPending").append(rowElementPending);
                     }
 
+                    if (value == true) {
+                        var rowElementReady = $("<tr>");
+                        rowElementReady.addClass("elementData");
 
+                        var colElementReady = $("<td>");
+                        colElementReady.append(key);
+
+                        var colChangeReady = $("<td id='change'>");
+                        colChangeReady.append("<i class='fas fa-angle-double-right'></i>");
+                        colChangeReady.attr("data-id", doc.id);
+                        colChangeReady.attr("data-email", doc.data().email);
+                        colChangeReady.attr("data-key", key);
+
+                        rowElementReady.append(colElementReady)
+                            .append(colChangeReady)
+
+                        $("#dataReady").append(rowElementReady);
+                    }
                 }
-
-
-
-                // if (doc.data().status == true) {
-                //     var colDel = $("<td id='delete'>");
-                //     colDel.append("<i class='fas fa-angle-double-left'></i>");
-                //     colDel.attr("data-id", doc.id);
-                //     colDel.attr("data-status", doc.data().status);
-                //     colDel.attr("data-element", doc.data().element);
-                //     colDel.attr("data-status", doc.data().status);
-                //     colDel.attr("data-user", doc.data().user);
-
-                //     rowElement.append(colElement)
-                //         .append(colDel)
-
-                //     $("#dataReady").append(rowElement);
-                // } else {
-                //     var colDel = $("<td id='delete' >");
-                //     colDel.append("<i class='fas fa-angle-double-right'></i>");
-                //     colDel.attr("data-id", doc.id);
-                //     colDel.attr("data-status", doc.data().status);
-                //     colDel.attr("data-element", doc.data().element);
-                //     colDel.attr("data-status", doc.data().status);
-                //     colDel.attr("data-user", doc.data().user);
-
-                //     var colErase = $("<td id='erase'>");
-                //     colErase.append("<i class='fa fa-trash'></i>");
-                //     colErase.attr("data-id", doc.id);
-
-                //     rowElement.append(colElement)
-                //         .append(colDel)
-                //         .append(colErase)
-
-                //     $("#dataPending").append(rowElement);
-                // }
+            }else{
+                var newUser = db.collection("users").doc();
+                newUser.set({ 
+                    'email': localStorage.getItem("email"),
+                    'Store one gallon of water per person per day.': false, 
+                    'Ready-to-eat canned meats, fruits, and vegetables.': false, 
+                    'High energy foods.': false, 
+                    'Vitamins.': false ,
+                    '(20) adhesive bandages, various sizes.': false, 
+                    'Aspirin or nonaspirin pain reliever.': false, 
+                    'Anti-diarrhea medication.': false, 
+                    'Mess kits, or paper cups, plates, and plastic utensils.': false ,
+                    'Battery-operated radio and extra batteries.': false ,
+                    'Flashlight and extra batteries.': false ,
+                    'Cash or traveler’s checks, change.': false ,
+                    'Non-electric can opener, utility knife.': false ,
+                    'Plastic storage containers.': false ,
+                    'Toilet paper, towelettes.': false ,
+                    'Soap, liquid detergent.': false ,
+                    'Feminine supplies.': false ,
+                    'Personal hygiene items.': false ,
+                    'Sturdy shoes or work boots.': false ,
+                    'Blankets or sleeping bags.': false ,
+                    'Hat and gloves.': false ,
+                    'Thermal underwear.': false
+                });	
             }
         })
     });
+
+
+
+
+
+
+
+    function downloadToCsv (json) {
+
+        var csvContent = "data:text/csv;charset=utf-8,";
+ 
+        json.forEach(function(rowArray){
+            var row = rowArray.join(",");
+            csvContent += row + "\r\n";
+        });
+ 
+        var encodedUri = encodeURI(csvContent);
+        window.open(encodedUri);
+    }
+ 
+    $("#downloadBtn").on("click", function (event) {
+        event.preventDefault();
+ 
+        var json = [["can", "city1", "some other info"], ["name2", "city2", "more info"]];
+        downloadToCsv(json);
+    });
+
+
+    
 
 
 

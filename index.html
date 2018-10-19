@@ -375,7 +375,8 @@
                 </div>
               </div>
 
-              <button class="btn btn-success" id="pendingBtn">View Ready List</button>
+              <button class="btn btn-success" id="pendingBtn" style="margin-left: 18px;">View Ready List</button>
+              <button class="btn btn-success" id="downloadBtn">Download List</button>
 
               <div class="col-md-12" id="readyElements">
                 <div class="elementList">
@@ -405,13 +406,7 @@
                   </table>
                 </div>
               </div>
-
-
             </div>
-
-
-
-
           </form>
         </div>
       </div>
@@ -422,7 +417,7 @@
     <div class="container">
       <div class="row">
         <form action="" class="probootstrap-form" id="findGass">
-          <h2 class="text-black mt0">Find Alternative Gas Station</h2>
+          <h2 class="text-black mt0">Find Gas Station</h2>
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
@@ -497,13 +492,12 @@
                 <div class="input-group mb-3">
                   <select class="custom-select" id="selectGasType" style="color: black; padding: 13px 2px;">
                     <option value="empty" selected>Choose Gas Type...</option>
-                    <option value="BD">Biodiesel (B20 and above)</option>
-                    <option value="CNG">Compressed Natural Gas</option>
+                    <option value="BD">Regular (about 87)</option>
+                    <option value="CNG">Mid-grade (about 89)</option>
+                    <option value="LNG">Premium (91 to 93)</option>
                     <option value="E85">Ethanol (E85)</option>
                     <option value="ELEC">Electric</option>
                     <option value="HY">Hydrogen</option>
-                    <option value="LNG">Liquefied Natural Gas</option>
-                    <option value="MPG">Liquefied petroleum Gas (Propane)</option>
                   </select>
                 </div>
               </div>
