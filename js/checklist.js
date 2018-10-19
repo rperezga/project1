@@ -23,7 +23,6 @@ $(function () {
     function newUser() {
         db.collection("users").doc().set({
             'email': email,
-            // 'email': 'rperezga@gmail.com',
             'Store one gallon of water per person per day.': false,
             'Ready-to-eat canned meats, fruits, and vegetables.': false,
             'High energy foods.': false,
@@ -87,7 +86,6 @@ $(function () {
     }
 
     $("#googleLogin").on("click", function () {
-        console.log('Tengo que ver si estoy login o no')
         provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider)
             .then(result => {
@@ -103,20 +101,19 @@ $(function () {
                 })
             
                 setTimeout(function () {
-                    if (exist == true) {
-                        
+                    if (exist == true) {                        
                         localStorage.setItem("logged", true);
                         localStorage.setItem("user", user.displayName);
                         localStorage.setItem("email", user.email);
             
                         $("#login").attr("hidden", false);
                         $("#nologin").attr("hidden", true);
-                    } else {
-                        console.log("NEW USER")
-                        newUser();
+                    } else {                        
                         localStorage.setItem("logged", true);
                         localStorage.setItem("user", user.displayName);
                         localStorage.setItem("email", user.email);
+
+                        newUser();
             
                         $("#login").attr("hidden", false);
                         $("#nologin").attr("hidden", true);
@@ -140,7 +137,6 @@ $(function () {
     });
 
     db.collection("users").onSnapshot(doc => {
-        console.log("Longitud: " + doc.length)
         $("#dataPending").text("");
         $("#dataReady").text("");
 
