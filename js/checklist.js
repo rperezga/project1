@@ -109,6 +109,7 @@ $(function () {
                         $("#login").attr("hidden", false);
                         $("#nologin").attr("hidden", true);
                     } else {
+                        console.log("NEW USER")
                         newUser();
                         user = result.user;
                         localStorage.setItem("logged", true);
@@ -118,7 +119,7 @@ $(function () {
                         $("#login").attr("hidden", false);
                         $("#nologin").attr("hidden", true);
                     }
-                }, 500)
+                }, 2000)
             })
             .catch(console.log);
     });
