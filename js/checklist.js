@@ -16,37 +16,35 @@ $(function () {
     var logged = localStorage.getItem("logged");
     var email = localStorage.getItem("email");
     // var logged = "true";
-    // var email = "rperezga@gmail.com"
+    // var email = "rperez@gmail.com"
 
     var exist = false;
 
     function newUser(newEmail) {
 
-        console.log("Email: " + newEmail);
-
         db.collection("users").doc().set({
             'email': newEmail,
-            'Store one gallon of water per person per day.': false,
-            'Ready-to-eat canned meats, fruits, and vegetables.': false,
-            'High energy foods.': false,
-            'Vitamins.': false,
-            '(20) adhesive bandages, various sizes.': false,
-            'Aspirin or nonaspirin pain reliever.': false,
-            'Anti-diarrhea medication.': false,
-            'Mess kits, or paper cups, plates, and plastic utensils.': false,
-            'Battery-operated radio and extra batteries.': false,
-            'Flashlight and extra batteries.': false,
-            'Cash or traveler’s checks, change.': false,
-            'Non-electric can opener, utility knife.': false,
-            'Plastic storage containers.': false,
-            'Toilet paper, towelettes.': false,
-            'Soap, liquid detergent.': false,
-            'Feminine supplies.': false,
-            'Personal hygiene items.': false,
-            'Sturdy shoes or work boots.': false,
-            'Blankets or sleeping bags.': false,
-            'Hat and gloves.': false,
-            'Thermal underwear.': false
+            'Store one gallon of water per person per day': false,
+            'Ready-to-eat canned meats, fruits, and vegetables': false,
+            'High energy foods': false,
+            'Vitamins': false,
+            '(20) adhesive bandages, various sizes': false,
+            'Aspirin or nonaspirin pain reliever': false,
+            'Anti-diarrhea medication': false,
+            'Mess kits, or paper cups, plates, and plastic utensils': false,
+            'Battery-operated radio and extra batteries': false,
+            'Flashlight and extra batteries': false,
+            'Cash or traveler’s checks, change': false,
+            'Non-electric can opener, utility knife': false,
+            'Plastic storage containers': false,
+            'Toilet paper, towelettes': false,
+            'Soap, liquid detergent': false,
+            'Feminine supplies': false,
+            'Personal hygiene items': false,
+            'Sturdy shoes or work boots': false,
+            'Blankets or sleeping bags': false,
+            'Hat and gloves': false,
+            'Thermal underwear': false
         });
     }
 
@@ -150,8 +148,6 @@ $(function () {
 
                 for (var key in doc.data()) {
                     var value = doc.data()[key]
-                    console.log("KEY: " + key);
-                    console.log("VALUE: " + value);
 
                     if (value == false) {
                         var rowElementPending = $("<tr>");
@@ -160,7 +156,7 @@ $(function () {
                         var colElementPending = $("<td>");
                         colElementPending.append(key);
 
-                        var colChangePending = $("<td id='change'>");
+                        var colChangePending = $("<td id='beReady'>");
                         colChangePending.append("<i class='fas fa-angle-double-right'></i>");
                         colChangePending.attr("data-id", doc.id);
                         colChangePending.attr("data-email", doc.data().email);
@@ -169,6 +165,7 @@ $(function () {
                         var colErasePending = $("<td id='erase'>");
                         colErasePending.append("<i class='fa fa-trash'></i>");
                         colErasePending.attr("data-id", doc.id);
+                        colErasePending.attr("data-key", key);
 
                         rowElementPending.append(colElementPending)
                             .append(colChangePending)
@@ -184,8 +181,8 @@ $(function () {
                         var colElementReady = $("<td>");
                         colElementReady.append(key);
 
-                        var colChangeReady = $("<td id='change'>");
-                        colChangeReady.append("<i class='fas fa-angle-double-right'></i>");
+                        var colChangeReady = $("<td id='beUnready'>");
+                        colChangeReady.append("<i class='fas fa-angle-double-left'></i>");
                         colChangeReady.attr("data-id", doc.id);
                         colChangeReady.attr("data-email", doc.data().email);
                         colChangeReady.attr("data-key", key);
@@ -202,6 +199,47 @@ $(function () {
         })
 
     });
+
+
+    $(document).on("click", "#beReady", function () {
+        var element = $(this).attr("data-key")
+        db.collection("users").doc($(this).attr("data-id")).update({
+            [element]: true
+        });
+    })
+
+    $(document).on("click", "#beUnready", function () {
+        var element = $(this).attr("data-key")
+        db.collection("users").doc($(this).attr("data-id")).update({
+            [element]: false
+        });
+    })
+
+    $(document).on("click", "#erase", function () {
+        var element = $(this).attr("data-key")
+        db.collection("users").doc($(this).attr("data-id")).update({
+            [element]: 'deleted'
+        });
+    })
+
+    $("#newItem").on("click", function () {
+        event.preventDefault();
+
+        var newTask = $("#inputTask").val();
+
+        db.collection("users").where("email", "==", email).get().then(doc => {
+            doc.forEach(function (docu) {
+                db.collection("users").doc(docu.id).update({
+                    [newTask]: false
+                });
+            })
+        });
+
+        $("#inputTask").val('');
+    })
+
+
+
 
 
 
