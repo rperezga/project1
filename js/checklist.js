@@ -99,26 +99,26 @@ $(function () {
                         }
                     });
                 })
-            
-                setTimeout(function () {
-                    if (exist == true) {                        
-                        localStorage.setItem("logged", true);
-                        localStorage.setItem("user", user.displayName);
-                        localStorage.setItem("email", user.email);
-            
-                        $("#login").attr("hidden", false);
-                        $("#nologin").attr("hidden", true);
-                    } else {                        
-                        localStorage.setItem("logged", true);
-                        localStorage.setItem("user", user.displayName);
-                        localStorage.setItem("email", user.email);
 
-                        newUser();
+                if (exist == true) {                        
+                    localStorage.setItem("logged", true);
+                    localStorage.setItem("user", user.displayName);
+                    localStorage.setItem("email", user.email);
+        
+                    $("#login").attr("hidden", false);
+                    $("#nologin").attr("hidden", true);
+                } else {                        
+                    localStorage.setItem("logged", true);
+                    localStorage.setItem("user", user.displayName);
+                    localStorage.setItem("email", user.email);
+
+                    setTimeout( newUser, 500 );
+        
+                    $("#login").attr("hidden", false);
+                    $("#nologin").attr("hidden", true);
+                }
             
-                        $("#login").attr("hidden", false);
-                        $("#nologin").attr("hidden", true);
-                    }
-                }, 2000)
+                
 
             })
             .catch(console.log);
