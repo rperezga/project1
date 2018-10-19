@@ -21,6 +21,9 @@ $(function () {
     var exist = false;
 
     function newUser(newEmail) {
+
+        console.log("Email: " + newEmail);
+
         db.collection("users").doc().set({
             'email': newEmail,
             'Store one gallon of water per person per day.': false,
@@ -137,7 +140,7 @@ $(function () {
 
     db.collection("users").onSnapshot(doc => {
         $("#dataPending").text("");
-        $("#dataReady").text("");
+        $("#dataReady").text("");        
 
         doc.forEach(function (doc) {
             if (doc.data().email == email) {
