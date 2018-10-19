@@ -103,25 +103,28 @@ $(function () {
                     });
                 })
 
-                if (exist == true) {                        
-                    localStorage.setItem("logged", true);
-                    localStorage.setItem("user", user.displayName);
-                    localStorage.setItem("email", user.email);
-        
-                    $("#login").attr("hidden", false);
-                    $("#nologin").attr("hidden", true);
-                } else {                        
-                    localStorage.setItem("logged", true);
-                    localStorage.setItem("user", user.displayName);
-                    localStorage.setItem("email", user.email);
+                setTimeout(function () {
 
-                    setTimeout( function(){
-                        newUser(user.email);
-                    }, 500 );
-        
-                    $("#login").attr("hidden", false);
-                    $("#nologin").attr("hidden", true);
-                }
+                    if (exist == true) {
+                        localStorage.setItem("logged", true);
+                        localStorage.setItem("user", user.displayName);
+                        localStorage.setItem("email", user.email);
+
+                        $("#login").attr("hidden", false);
+                        $("#nologin").attr("hidden", true);
+                    } else {
+                        localStorage.setItem("logged", true);
+                        localStorage.setItem("user", user.displayName);
+                        localStorage.setItem("email", user.email);
+
+                        setTimeout(function () {
+                            newUser(user.email);
+                        }, 500);
+
+                        $("#login").attr("hidden", false);
+                        $("#nologin").attr("hidden", true);
+                    }
+                }, 500);
             })
             .catch(console.log);
     });
@@ -140,7 +143,7 @@ $(function () {
 
     db.collection("users").onSnapshot(doc => {
         $("#dataPending").text("");
-        $("#dataReady").text("");        
+        $("#dataReady").text("");
 
         doc.forEach(function (doc) {
             if (doc.data().email == email) {
