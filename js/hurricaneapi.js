@@ -101,15 +101,18 @@ $(document).on("click", "#track", function () {
            else { 
                for (var i = 0; i < results.length; i++) 
 
-                var stormType1 = results[i].position.details.stormType;
-                var stormName1 = results[i].position.details.stormName;
-                var stormDirection = results[i].position.details.movement;
-                var stormSpeed1 = results[i].position.details.windSpeedMPH;
-                var long1 = results[i].position.location.coordinates[0];
-                var lat1 = results[i].position.location.coordinates[1];
+                var current = results[i];
+                var position = current.position;
+                var location = position.location;
+                var stormType1 = position.details.stormType;
+                var stormName1 = position.details.stormName;
+                var stormDirection = position.details.movement;
+                var stormSpeed1 = position.details.windSpeedMPH;
+                var long1 = location.coordinates[0];
+                var lat1 = location.coordinates[1];
 
 
-                console.log(results[i].profile.name);
+                console.log(current.profile.name);
 
                 // Create the new row
                 var newRow = $("<tr>").append(
