@@ -167,12 +167,6 @@ $(function () {
         })
     });
 
-
-
-
-
-
-
     function downloadToCsv (json) {
 
         var csvContent = "data:text/csv;charset=utf-8,";
