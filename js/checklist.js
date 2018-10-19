@@ -23,6 +23,7 @@ $(function () {
     function newUser() {
         db.collection("users").doc().set({
             'email': localStorage.getItem("email"),
+            // 'email': 'rperezga@gmail.com',
             'Store one gallon of water per person per day.': false,
             'Ready-to-eat canned meats, fruits, and vegetables.': false,
             'High energy foods.': false,
@@ -98,14 +99,14 @@ $(function () {
                         }
                     });
                 })
-
+            
                 setTimeout(function () {
                     if (exist == true) {
                         user = result.user;
                         localStorage.setItem("logged", true);
                         localStorage.setItem("user", user.displayName);
                         localStorage.setItem("email", user.email);
-
+            
                         $("#login").attr("hidden", false);
                         $("#nologin").attr("hidden", true);
                     } else {
@@ -115,11 +116,12 @@ $(function () {
                         localStorage.setItem("logged", true);
                         localStorage.setItem("user", user.displayName);
                         localStorage.setItem("email", user.email);
-
+            
                         $("#login").attr("hidden", false);
                         $("#nologin").attr("hidden", true);
                     }
                 }, 2000)
+
             })
             .catch(console.log);
     });
