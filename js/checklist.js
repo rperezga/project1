@@ -22,7 +22,7 @@ $(function () {
 
     function newUser() {
         db.collection("users").doc().set({
-            'email': email,
+            'email': localStorage.getItem("email"),
             'Store one gallon of water per person per day.': false,
             'Ready-to-eat canned meats, fruits, and vegetables.': false,
             'High energy foods.': false,
