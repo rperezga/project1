@@ -20,9 +20,9 @@ $(function () {
 
     var exist = false;
 
-    function newUser() {
+    function newUser(newEmail) {
         db.collection("users").doc().set({
-            'email': localStorage.getItem("email"),
+            'email': newEmail,
             'Store one gallon of water per person per day.': false,
             'Ready-to-eat canned meats, fruits, and vegetables.': false,
             'High energy foods.': false,
@@ -112,14 +112,13 @@ $(function () {
                     localStorage.setItem("user", user.displayName);
                     localStorage.setItem("email", user.email);
 
-                    setTimeout( newUser, 500 );
+                    setTimeout( function(){
+                        newUser(user.email);
+                    }, 500 );
         
                     $("#login").attr("hidden", false);
                     $("#nologin").attr("hidden", true);
                 }
-            
-                
-
             })
             .catch(console.log);
     });
