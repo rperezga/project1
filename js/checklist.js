@@ -238,15 +238,6 @@ $(function () {
         $("#inputTask").val('');
     })
 
-
-
-
-
-
-
-
-
-
     function downloadToCsv(json) {
 
         var csvContent = "data:text/csv;charset=utf-8,";
@@ -263,8 +254,14 @@ $(function () {
     $("#downloadBtn").on("click", function (event) {
         event.preventDefault();
 
-        var json = [["can", "city1", "some other info"], ["name2", "city2", "more info"]];
-        downloadToCsv(json);
+        db.collection("users").where("email", "==", user.email).get().then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                if (doc) {
+                    console.log(doc.data());
+                }
+            });
+        })
+        //downloadToCsv(json);
     });
 
 
