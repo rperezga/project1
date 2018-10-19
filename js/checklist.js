@@ -138,31 +138,31 @@ $(function () {
                     }
                 }
             }else{
-                var newUser = db.collection("users").doc();
-                newUser.set({ 
-                    'email': localStorage.getItem("email"),
-                    'Store one gallon of water per person per day.': false, 
-                    'Ready-to-eat canned meats, fruits, and vegetables.': false, 
-                    'High energy foods.': false, 
-                    'Vitamins.': false ,
-                    '(20) adhesive bandages, various sizes.': false, 
-                    'Aspirin or nonaspirin pain reliever.': false, 
-                    'Anti-diarrhea medication.': false, 
-                    'Mess kits, or paper cups, plates, and plastic utensils.': false ,
-                    'Battery-operated radio and extra batteries.': false ,
-                    'Flashlight and extra batteries.': false ,
-                    'Cash or traveler’s checks, change.': false ,
-                    'Non-electric can opener, utility knife.': false ,
-                    'Plastic storage containers.': false ,
-                    'Toilet paper, towelettes.': false ,
-                    'Soap, liquid detergent.': false ,
-                    'Feminine supplies.': false ,
-                    'Personal hygiene items.': false ,
-                    'Sturdy shoes or work boots.': false ,
-                    'Blankets or sleeping bags.': false ,
-                    'Hat and gloves.': false ,
-                    'Thermal underwear.': false
-                });	
+                // var newUser = db.collection("users").doc();
+                // newUser.set({ 
+                //     'email': localStorage.getItem("email"),
+                //     'Store one gallon of water per person per day.': false, 
+                //     'Ready-to-eat canned meats, fruits, and vegetables.': false, 
+                //     'High energy foods.': false, 
+                //     'Vitamins.': false ,
+                //     '(20) adhesive bandages, various sizes.': false, 
+                //     'Aspirin or nonaspirin pain reliever.': false, 
+                //     'Anti-diarrhea medication.': false, 
+                //     'Mess kits, or paper cups, plates, and plastic utensils.': false ,
+                //     'Battery-operated radio and extra batteries.': false ,
+                //     'Flashlight and extra batteries.': false ,
+                //     'Cash or traveler’s checks, change.': false ,
+                //     'Non-electric can opener, utility knife.': false ,
+                //     'Plastic storage containers.': false ,
+                //     'Toilet paper, towelettes.': false ,
+                //     'Soap, liquid detergent.': false ,
+                //     'Feminine supplies.': false ,
+                //     'Personal hygiene items.': false ,
+                //     'Sturdy shoes or work boots.': false ,
+                //     'Blankets or sleeping bags.': false ,
+                //     'Hat and gloves.': false ,
+                //     'Thermal underwear.': false
+                // });	
             }
         })
     });
