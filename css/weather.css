@@ -45,10 +45,15 @@ a {
     font-size: 5.5em; 
     line-height: 0.7;
   }
+  /* Changes to weather icon */
+  #main-icon{
+    float:left;
+  }
   
+  /* Changed text align to left */
   #tempDescription {
     margin-top: 10px;
-    text-align: center;
+    text-align: left;
   }
   
   .day-weather-box {

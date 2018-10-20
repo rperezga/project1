@@ -17,13 +17,33 @@ html {
   overflow-x: hidden;
   font-size: 1.25em;
 }
-
+/* Shari removed important */
 body {
-  background: rgb(22, 2, 58) !important;
+  background: rgb(22, 2, 58);
   color: white;
   line-height: 1.7;
   font-size: 16px;
   font-family: "Open Sans", Arial, sans-serif;
+}
+/* Shari added styling for sections 2,5 & 8 */
+#section2{
+  background: #003278;
+  font-family: 'Volkhov', serif;
+} 
+
+/*Shari New section */
+#section5{
+  background: #c57300;
+  font-family: 'Volkhov', serif;
+}
+
+#section8{
+  background: #007846
+}
+
+/* Removed from alt-css file and added here and changed color */
+#supply-form{
+  background: #780032;
 }
 #logo{
   width:300px;
@@ -43,8 +63,21 @@ body {
   background: #000000;
   color: #ffffff;
 }
+/* Shari separated out h1 */
+h1{
+  font-family: 'Volkhov', serif;
+  font-size: 60px;
+  text-shadow: 2px 2px 10px black;
+  font: white !important;
+}
 
-h1, h2, h3, h4, h5, h6, p, ol {
+h2, h3, h4, h5, h6, ol {
+  margin-bottom: 30px;
+}
+
+p {
+  font-family: "Open Sans",Arial,sans-serif;
+  font-size: 15px;
   margin-bottom: 30px;
 }
 
@@ -534,7 +567,6 @@ a:hover, a:focus, a:active {
 
 .probootstrap-hero .intro-text .probootstrap-subheading {
   max-width: 500px;
-  color: rgba(255, 255, 255, 0.9);
   font-size: 20px;
 }
 
@@ -555,9 +587,9 @@ a:hover, a:focus, a:active {
   margin-right: 10px;
   border: 2px solid #1a57a5;
 }
-
+/* shari button color chnage */
 .probootstrap-hero .intro-text .probootstrap-subheading .btn:hover {
-  background: #103463;
+  background: black;
   border-color: #103463;
 }
 
@@ -616,7 +648,7 @@ a:hover, a:focus, a:active {
 .probootstrap-footer {
   padding: 3em 0;
   position: relative;
-  background: #1a57a5;
+  background: #003278;
   color: #ffffff;
 }
 
@@ -790,13 +822,13 @@ a:hover, a:focus, a:active {
   font-size: 16px;
   padding: 10px 40px;
 }
-
+/* shari  button color change */
 .btn.btn-primary {
-  background: #1a57a5;
+  background: black;
 }
 
 .btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
-  background: #103463;
+  background: rgb(58, 57, 57);
 }
 
 .btn.btn-black {
