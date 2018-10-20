@@ -15,8 +15,9 @@ $(function () {
 
     var logged = localStorage.getItem("logged");
     var email = localStorage.getItem("email");
-    // var logged = "true";
-    // var email = "rperez@gmail.com"
+
+    //var logged = "true";
+    //var email = "rperez@gmail.com"
 
     var exist = false;
 
